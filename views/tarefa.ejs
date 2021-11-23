@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Lista de Tarefas</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Lista de Tarefas</h1>
+    </header>
+    <div class="container">
+        <table class="table">
+            <th>Descrição</th>
+            <th>Situação</th>
+
+            <% for(i=0; i < dados.length; i++){ %>
+                <tr>
+                    <td>
+                        <%= dados[i].Nome_Tarefa %>
+                    </td>
+                    <td>
+                        <%= dados[i].Situacao_Tarefa %>
+                    </td>
+
+                    <td>
+                        <a href="/editar/<%= dados[i].Id_Tarefa %>" class="btn btn-success edit">Editar</a>
+                        <a href="/tarefa/deletar/<%= dados[i].Id_Tarefa %>" class="btn btn-danger delete"
+                            onclick="return confirm ('Deseja Excluir?')">Apagar</a>
+                    </td>
+                </tr>
+
+                <% } %>
+        </table>
+
+        <form action="/tarefa/salvar" method="post">
+            Tarefa <input type="text" required>
+            <select name="Situacao_Tarefa">
+                <option>Atrasada</option>
+                <option>Em Andamento</option>
+                <option>Não Realizada</option>
+                <option>Finalizada</option>
+                <option>Realizada</option>
+            </select><br><br>
+            <input type="submit" value="Adicionar" class="btn btn-primary">
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+    <header>
+        <h1>Editar Tarefa</h1>
+    </header>
+    <div class="container">
+        <form action="/atualizar/<%= Id_Tarefa %>" method="post">
+            <div class="form-group">
+                <label>TAREFA</label>
+                <input type="text" name="Nome_Tarefa" class="form-control" value="<%= Nome_Tarefa %>">
+            </div>
+            <div class="form-group">
+                <label>SITUAÇÃO</label>
+                <input type="text" class="form-control" value="<%= Situacao_Tarefa %>" readonly><br>
+                <select  name="Situacao_Tarefa">
+                    <option>Atrasada</option>
+                    <option>Em Andamento</option>
+                    <option>Não Realizada</option>                    
+                    <option>Finalizada</option>
+                    <option>Realizada</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-info">Atualizar</button>
+        </form>
+    </div>
+</body>
+
+</html>
